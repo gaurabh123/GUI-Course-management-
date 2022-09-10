@@ -1,125 +1,124 @@
-/*this class is the subclass of the class Course
-this class inherits some property of the class Course*/
-
-public class AcademicCourse extends Course // 'extends' keyword helps in inheritance
+public class Academic_Course extends Course /** This class is the child class of course */
 {
-    private String LecturerName;  // 'private' is an access modifier which tells that this varaible can only be accessed from  within the class 
+    private String Lecturer_name; 
     private String Level;
-    private String Credit;  // 'private' is an access modifier which tells that this varaible can only be accessed from  within the class 
-    private String StartingDate; // 'private' is an access modifier which tells that this varaible can only be accessed from  within the class 
-    private String CompletionDate;
-    private int NumberofAssesments;
-    private boolean isRegistered;  // 'private' is an access modifier which tells that this varaible can only be accessed from  within the class 
+    private String Credit;
+    private String Starting_Date;
+    private String Completion_Date;
+    private int Number_of_Assessments;
+    private boolean IsRegistered;
     
-    //creating constructor for the class AcademicCourse, this constructor has 6 parameters
-    public AcademicCourse(String CourseID,String CourseName, int duration, String Level, String Credit, int NumberofAssesments )
-    {
-        super(CourseID, CourseName, duration); //use of 'super' keyword to call the constructor of parent class(Course)
-        this.Level = Level; //using 'this' as the name of instance and local variables are same
-        this.NumberofAssesments=NumberofAssesments;
-        this.Credit = Credit; //using 'this' as the name of instance and local variables are same
-        LecturerName = "";
-        StartingDate = "";
-        CompletionDate = "";
-        isRegistered = false;  
+    public Academic_Course (String Course_ID, String Course_Name, int Duration, String level, String credit, String Lecturer_name, int Number_of_Assessments)/** Initializes constructor academic course */
+    { super ( Course_ID, Course_Name, Duration); /** Calls value from super class to academic course */
+
+        this.Lecturer_name = Lecturer_name;
+        this.Level= level;
+        this.Credit= credit;
+        this.Number_of_Assessments= Number_of_Assessments;
+        this.Completion_Date = "";
+        this.Starting_Date="";
+        this.IsRegistered = false;
+
     }
-    //getter(accessor) methods for the corresponding attributes/variables
-    public String getLevel()
+    
+    public String getLevel() //Calling getter method from class to get value of level
     {
-        return Level;     //return          statement helps in returning the value from the method
+        return this.Level;
     }
-    public int getNumberofAssesments()
+    
+    public String getCredit() //Calling getter method from class to get value of credit
     {
-        return NumberofAssesments; //return statement helps in returning the value from the method
+        return this.Credit;
     }
-    public String getCredit()
+    
+    public int getNumber_of_Assessments() //Calling getter method from class to get value of number of assessment
     {
-        return Credit;    //return statement helps in returning the value from the method
+        return this.Number_of_Assessments;
     }
-    public String getLecturerName()
+    
+    public String getLecturer_name() //Calling getter method from class to get value of lecturer name
     {
-        return LecturerName;    //return statement helps in returning the value from the method
+        return this.Lecturer_name;
     }
-    public String getStartingDate()
+    
+    public String getStarting_Date() //Calling getter method from class to get value of starting date
     {
-        return StartingDate;    //return statement helps in returning the value from the method
+        return this.Starting_Date;
     }
-    public String getCompletionDate()
+    
+    public String getCompletion_Date() //Calling getter method from class to get value of completion date
     {
-        return CompletionDate;   //return statement helps in returning the value from the method
+        return this.Completion_Date;
     }
-    public boolean getisRegistered()
+    
+    public boolean getIsRegistered() //Calling getter method from class to get value of IsRegistered
     {
-        return isRegistered;    //return statement helps in returning the value from the method
+        return this.IsRegistered;
     }
-    //setter(mutators) methods for the corresponding attributes/variables
-    public void setLecturerName(String newlecturer)
+    
+    public String getCourse_ID() //Calling getter method from super class to get value of COurse ID
     {
-        this.LecturerName = newlecturer;    
+        return super.getCourse_ID();
     }
-    public void setNumberofAssesments(int newnumberofassesments)
+    
+    public String getCourse_Name() // Calling getter method from super class to get value of course name
     {
-        this.NumberofAssesments = newnumberofassesments;   
+        return super.getCourse_Name();
     }
-    public void setStartingDate(String startdate)
+
+    public String getCourse_Leader() // Calling getter method from super class to get value of course leader
     {
-        this.StartingDate = startdate;   
+        return super.getCourse_Leader();
     }
-    public void setCompletionDate(String completiondate)
+    
+    public int getDuration()  // Calling getter method from super class to get value of course duration
     {
-        this.CompletionDate = completiondate;    
+        return super.getDuration();
     }
-    public void setLevel(String level)
+    
+    public void setCourse_Leader(String Course_Leader)  // Calling setter method from class to set value of course leader
     {
-        this.Level = level;
+        setCourse_Leader(Course_Leader);
+        System.out.println("Lecturer is assigned");
     }
-    public void setCredit(String credit)
+    
+    public void setNumber_of_Assessments( int Number_of_Assessments) // Calling setter method from class to set value of number of assessment
     {
-        this.Credit = credit;
+        this.Number_of_Assessments = Number_of_Assessments;
+        System.out.println("Number of assessments has been chnaged");
     }
-    public void setisRegistered(boolean isregistered)
+    
+    public void Register(String Course_Leader, String Lecturer_name, String Starting_Date, String Completion_Date ) /** method used to Register variables **/
     {
-        this.isRegistered = isregistered;    
-    }
-    //creating method called register for registering particular academic course
-    public void register(String CourseLeader,String LecturerName, String StartingDate, String CompletionDate )
-    {
-        if(getisRegistered() == true)//using conditional statements to check whether isRegistered is true or not
+        if( IsRegistered == true)
         {
-            System.out.println("The course is already registered"); //used for displaying the data to user
-            System.out.println("The name of the Lecturer is: " + this.getLecturerName()); 
-            System.out.println("The starting date of the course is: " + this.getStartingDate()); //used for displaying the data to user
-            System.out.println("The completion date of the course is: " + this.getCompletionDate()); //used for displaying the data to user
+            System.out.println(" The course is already registered");
         }
-        else // if the above if statement doesnot execute else executes
+        else 
         {
-            super.setCourseLeader(CourseLeader); //calling the instance variable from parent class
-            this.setLecturerName(LecturerName); //calling the instance variable from parent class
-            this.setStartingDate(StartingDate);
-            this.setCompletionDate(CompletionDate);  //calling the instance variable from parent class
-            this.setisRegistered(true);   
-        }
-      
-    } 
-    //method to display the details of the class AcademicCourse
-    public void display() //method overriding(the concept in which the method name and signature of both parent and child class are same)
-    {
-        super.display(); //calling the display method from parent class Course
-        
-        if(getisRegistered() == true) //using conditional statements to check whether isRegistered is true or not
-        {
-            System.out.println("The name of the lecturer is: " + this.getLecturerName());
-            System.out.println("The level of study is: " + this.getLevel());  //used for displaying the data to user
-            System.out.println("The credit obtained is: " + this.getCredit()); //used for displaying the data to user
-            System.out.println("The starting date is: " + this.getStartingDate());
-            System.out.println("The completion date is: " + this.getCompletionDate()); //used for displaying the data to user
-            System.out.println("The number of assesments are: " + this.getNumberofAssesments()); //used for displaying the data to user
+            super.setCourse_Leader(Course_Leader); /** Calling the setter method from super class to set the value of course leader **/
             
-            
+            this.Lecturer_name = Lecturer_name;
+            this.Starting_Date = Starting_Date;
+            this.Completion_Date = Completion_Date;
+            this.IsRegistered = true;
         }
-    
-        
-        
     }
-    
-}
+    public void display() /** Method used to display the value of the variables **/ 
+    {
+        super.Display();
+        if(IsRegistered == false)
+        {
+            System.out.println("The Course details are not registered");
+        }
+        else
+        {
+            System.out.println("The lecturer name = " + this.Lecturer_name);
+            System.out.println("The level is = " + this.Level);
+            System.out.println("The Credits = " + this.Credit);
+            System.out.println("Start of lecture = " + this.Starting_Date);
+            System.out.println("End of the lecture = " + this.Completion_Date);
+            System.out.println("Number of assessments = " + this.Number_of_Assessments);
+        }
+    }
+}   
