@@ -1,65 +1,52 @@
-public class Course
+ class Course 
 {
-    //declaring instance variables
-    private String CourseID;
-    private String CourseName;
-    private String CourseLeader; // 'private' is an access modifier which tells that this varaible can only be accessed from  within the class
-    private int duration;
-    
-    //creating constructor(with 3 parameters) of the class Course
-    public Course(String CourseID, String CourseName, int duration)
+    private String Course_ID;
+    private String Course_Name;
+    private String Course_Leader;
+    private int Duration;
+    public Course(String Course_ID, String Course_Name, int Duration) /** Constructor for the course class */
     {
-        this.CourseID=CourseID; //using this as the name of instance and local variables are same
-        this.CourseName=CourseName; //using this as the name of instance and local variables are same
-        this.duration=duration;  //using this as the name of instance and local variables are same
-        CourseLeader="";  
+        this.Course_ID = Course_ID;
+        this.Course_Name = Course_Name;
+        this.Duration = Duration;
+        this.Course_Leader = "";
     }
-    //getter(accessor) methods for the corresponding attributes/variables
-    public String getCourseID()
+    public String getCourse_ID() //Calling getter method from class to get value of course ID
     {
-        return CourseID; //return statement helps in returning the value from the method
+        return this.Course_ID;
     }
-    public String getCourseName()
+    public String getCourse_Name() //Calling getter method from class to get value of course name
     {
-        return CourseName; //return statement helps in returning the value from the method
+        return this.Course_Name;
     }
-    public String getCourseLeader()
+    public String getCourse_Leader() //Calling getter method from class to get value of course leader
     {
-        return CourseLeader;     //return statement helps in returning the value from the method
+        return this.Course_Leader;
     }
-    public int getduration()
+    public int getDuration() //Calling getter method from class to get value of Duration
     {
-        return duration;    //return statement helps in returning the value from the method
+        return this.Duration;
     }
-    //setter(mutator) methods for the corresponding attributes/variables
-    public void setCourseLeader(String courseleader)
+    public void setCourse_Leader(String Course_Leader) //Calling setter method from class to set value of Course leader
     {
-        this.CourseLeader=courseleader;
+        this.Course_Leader = Course_Leader;
     }
-    public void setCourseID(String courseid)
+    public void Display() /** Method used to display the variables */
     {
-        this.CourseID = courseid;
-    }
-    public void setCourseName(String coursename)
-    {
-        this.CourseName = coursename;
-    }
-    public void setduration(int time)
-    {
-        this.duration = time;
-    }
-    //method to display all the details of the class Course
-    public void display() 
-    {
-        System.out.println("The id of the course is: " + this.getCourseID()); //use to display the data to the user
-        System.out.println("The name of the course is: " + this.getCourseName());
-        System.out.println("The duration of the course is: " + this.getduration() + "years");
-        if(CourseLeader!="") //use of conditional statement to check whether courseleader is empty or not
+        System.out.println("The Course ID is = " + this.Course_ID);
+        
+        System.out.println("The Course Name is = " + this.Course_Name);
+        
+        System.out.println("The Duration is = " + this.Duration);
+        
+        if(Course_Leader==(""))
+        
         {
-            System.out.println("The name of the course leader is: " + this.getCourseLeader()); // prints the message inside the bracket to user
-            
+            System.out.println("There is no Course leader ");
         }
-    }
-    
-    
+        else 
+        {
+            System.out.println("The Course leader is = " + this.Course_Leader);
+        }
+    }   
 }
