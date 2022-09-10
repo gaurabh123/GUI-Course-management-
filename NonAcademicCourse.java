@@ -1,145 +1,150 @@
-/*this class is the subclass of the class Course
-this class inherits some property of the class Course*/
-
-public class NonAcademicCourse extends Course// 'extends' keyword helps in inheritance
-{
-    private String InstructorName;
-    private String StartDate;
-    private String CompletionDate;// 'private' is an access modifier which tells that this varaible can only be accessed from  within the class 
-    private String ExamDate;
+public class NonAcademic_Course extends Course /** This class is the child class of course */
+  {
+    private String Instructor_Name;
+    private String Start_Date;
+    private String Completion_Date;
+    private String Exam_Date;
     private String Prerequisite;
     private boolean isRegistered;
     private boolean isRemoved;
+  
+     NonAcademic_Course(String Course_ID, String Course_Name, int Duration, String Prerequisite)//Initalizes value in the constructor
+     { 
+      super (Course_ID, Course_Name, Duration);// Calls value from super class
+      
+      this.Instructor_Name = Instructor_Name; //Returns the value to the assigned variable
+      
+      this.Prerequisite = Prerequisite;
+      
+      this.Start_Date = "";
+      
+      this.Completion_Date = "";
+      
+      this.Exam_Date = "";
+      
+      this.isRegistered = false;
+      
+      this.isRemoved = false;
+      
+    }
     
-    //creating constructor for class NonAcademicCourse, this constructor has 4 parameters
-    public NonAcademicCourse(String CourseID, String CourseName, int duration, String Prerequisite)
+    public String getInstructor_Name() //Calling getter method from class to get value of Instructor name
     {
-        super(CourseID,CourseName,duration); //calling the constructor from parent class Course
-        StartDate = "";
-        CompletionDate = "";
-        ExamDate = "";
-        this.Prerequisite = Prerequisite; //using 'this' as the name of instance and local variables are same
-        isRegistered = false;
-        isRemoved = false;    
+        return this.Instructor_Name;
     }
-    //getter(accessor) methods for the corresponding attributes/variables
-    public String getInstructorName()
+    
+    public int getDuration()  //Calling getter method from class to get value of duration
     {
-        return InstructorName; //return statement helps in returning the value from the method
+        return super.getDuration();
     }
-    public String getStartDate()
+    
+    public String getStart_Date()  //Calling getter method from class to get valaue of starting date
     {
-        return StartDate;    
+        return this.Start_Date;
     }
-    public String getCompletionDate()
+    
+    public String getCompletion_Date() //Calling gettter method from class to get value of completion date
     {
-        return CompletionDate;   
+        return this.Completion_Date;
     }
-    public String getExamDate()
+    
+    public String getExam_Date()  //Calling getter method from class to get value of examination date
     {
-        return ExamDate;   
+        return this.Exam_Date;
     }
-    public String getPrerequisite()
+    
+    public String getPrerequisite()  // Calling getter method from class to get value of prerequiste
     {
-        return Prerequisite;   
+        return this.Prerequisite;
     }
-    public boolean getisRegistered()
+    
+    public boolean getisRegistered() //Calling getter method from class to get valule of registered
     {
-        return isRegistered;    
+        return this.isRegistered;
     }
-    public boolean getisRemoved()
+    
+    public boolean getisRemoved() //Calling getter method from class to get value of removed
     {
-        return isRemoved;   
+        return this.isRemoved;
     }
-    //setter(mutator) methods for the corresponding attributes/variables
-    public void setInstructorName(String newinstructorname)
+    
+    public String getCourse_ID()  //Calling getter method from super class to get value of course ID
     {
-        if(getisRegistered() == false) //use of conditional statements
+        return super.getCourse_ID();
+    }
+    
+    public String getCourse_Name() // Calling getter method from super class to get value of course name
+    {
+        return super.getCourse_Name();
+    }
+    
+    public void setInstructor_Name(String Instructor_Name) /** Setter method to set value of Instructor name */
+    {
+       if(isRegistered == false) {
+           this.Instructor_Name = Instructor_Name;  
+       }
+       
+       else {
+           System.out.println("The Instructor and the course has already been registered");
+       }   
+    }
+    
+    public void Register(String Course_Leader, String Instructor_Name, String Start_Date, String Completion_Date, String Exam_Date) /** Method used to register variables*/
+    {
+        if (isRegistered == false)
         {
-            this.InstructorName = newinstructorname;  
+            setInstructor_Name(Instructor_Name); // Calling the setter method from class to set instructor name
+            super.setCourse_Leader(Course_Leader); // Calling the setter method from class to set value of course leader
+            this.Start_Date = Start_Date;
+            this.Completion_Date =  Completion_Date;
+            this.Exam_Date = Exam_Date;
+            this.isRegistered = true;
+            this.isRemoved = false;
+            System.out.println("Course has been registered sucessfully");
         }
         else
         {
-            System.out.println("It is already registered so it is not possible to change the instructor name");   
+             System.out.println("The course is already registered");
         }
     }
-    public void setStartDate(String startdate)
+    
+    public void Remove() /**method used to remove the variables */
     {
-        this.StartDate = startdate;   
-    }
-    public void setCompletionDate(String completiondate)
-    {
-        this.CompletionDate = completiondate;   
-    }
-    public void setExamDate(String examdate)
-    {
-        this.ExamDate = examdate;
-    }
-    public void setPrerequisite(String prerequisite)
-    {
-        this.Prerequisite = prerequisite;
-    }
-    public void setisRegistered(boolean isregistered)
-    {
-        this.isRegistered = isregistered;    
-    }
-    public void setisRemoved(boolean isremoved)
-    {
-        this.isRemoved = isremoved;   
-    }
-    //creating method register for registering NonAcademicCourse
-    public void register(String CourseLeader, String InstructorName, String StartDate,String CompletionDate,String ExamDate)
-    {
-        if(getisRegistered() == false) //use of conditional statements
+        if(isRemoved == false)
         {
-            super.setCourseLeader(CourseLeader);
-            this.setInstructorName(InstructorName);
-            this.setStartDate(StartDate);
-            this.setCompletionDate(CompletionDate);
-            this.setExamDate(ExamDate);
-            setisRegistered(true);
-                  
+            super.setCourse_Leader(""); /**Calling the setter method from super class to course leader **/ 
+            this.Instructor_Name = "";
+            this.Start_Date = "";
+            this.Completion_Date="";
+            this.Exam_Date = "";
+            isRegistered = false;
+            isRemoved = true;
+            System.out.println("Course removed");            
         }
         else
-        {
-            System.out.println("The course is already registered");
-            
-        }
-    }
-    //creating method remove for removing NonAcademicCourse
-    public void remove()
-    {
-        if(getisRemoved() == true) //use of conditional statements
         {
             System.out.println("The course is already removed");
-            
+        }
+    }
+    
+    public void display() /** Method used to display the variable */
+    {
+        super.Display(); /** calling the display from superclass */
+        if(isRegistered == false)
+        {
+            System.out.print("Course is not registered");
         }
         else
         {
-            super.setCourseLeader("");
-            this.setStartDate("");
-            this.setCompletionDate("");
-            this.setExamDate("");
-            this.setisRegistered(false);
-            this.setInstructorName("");
-            this.setisRemoved(true);   
+            System.out.println();
+            System.out.println("Instructor name = " + this.Instructor_Name);
+            System.out.println("Starting date = " + this.Start_Date);
+            System.out.println("Date of completion = " + this.Completion_Date);
+            System.out.println("Date of examination = " + this.Exam_Date);
         }
     }
-    //method to display the details of NonAcademicCourse
-    public void display()//method overriding(the concept in which the method name and signature of both parent and child class are same)
-    {
-        super.display(); //calling the display method from parent class Course
-        if(getisRegistered() == true) //use of conditional statements
-        {
-            System.out.println("The name of the instructor is: " + this.getInstructorName());
-            System.out.println("The starting date is: " + this.getStartDate());
-            System.out.println("The completion date is: " + this.getCompletionDate());
-            System.out.println("The exam date is: " + this.getExamDate());
-            
-        }
-        
-        
-    }
-    
-    
 }
+
+
+ 
+       
